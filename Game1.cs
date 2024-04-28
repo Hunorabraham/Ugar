@@ -15,6 +15,7 @@ namespace Ugar
         static public List<Image> RenderList = new();
         static public Dictionary<string, Texture2D> TextureList = new();
         static public List<Button> ActiveButtons = new();
+        static public List<Text> ActiveText = new();
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -64,6 +65,7 @@ namespace Ugar
             }*/
             //reset button colors
             ActiveButtons.ForEach(button => button.Color = Color.Blue);
+            ActiveText.ForEach(text=>text.Color = Color.Black);
             for (int i = 0; i < ActiveButtons.Count; i++)
             {
                 if (ActiveButtons[i].collider.TestPoint(Tool.MousePosition))
@@ -75,6 +77,7 @@ namespace Ugar
                         break;
                     }
                     ActiveButtons[i].Color = Color.LightBlue;
+                    ActiveText[i].Color = Color.White;
                     break;
                 }
             }
@@ -89,8 +92,13 @@ namespace Ugar
             {
                 _spriteBatch.Draw(item.Texture,item.Position*Tool.ScreenScale,null,Color.Gray,0f,new Vector2(item.Texture.Width/2f,item.Texture.Height/2f),(new Vector2(item.Scale.X/item.Texture.Width,item.Scale.Y/item.Texture.Height))*Tool.ScreenScale,SpriteEffects.None,item.LayerDepth);
             }
+            foreach(var item in ActiveText)
+            {
+                _spriteBatch.Draw(item.Txt, item.Position * Tool.ScreenScale, null, item.Color,0f, new Vector2(item.Txt.Width / 2f, item.Txt.Height / 2f), (new Vector2(item.Size.X / item.Txt.Width, item.Size.Y / item.Txt.Height)) * Tool.ScreenScale,SpriteEffects.None,1);
+            }
             //_spriteBatch.Draw(TextureList["DebugTexture0"],LETMEOUT.Position*Tool.ScreenScale,null,LETMEOUT.Color,0f, new Vector2(50,50),LETMEOUT.Size/100*Tool.ScreenScale,SpriteEffects.None,1);
             _spriteBatch.Draw(TextureList["DebugTexture0"], Tool.MousePosition * Tool.ScreenScale, null, Color.Orange, 0f, new Vector2(50, 50), 10f / 100f, SpriteEffects.None, 1); 
+                        
             _spriteBatch.End();
             base.Draw(gameTime);
         }
