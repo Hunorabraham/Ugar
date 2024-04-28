@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace Ugar
 {
@@ -8,6 +9,7 @@ namespace Ugar
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private List<Texture2D> RenderList;
 
         public Game1()
         {
