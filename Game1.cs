@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 
 namespace Ugar
 {
@@ -13,8 +14,7 @@ namespace Ugar
         private SpriteBatch _spriteBatch;
         static public List<Image> RenderList = new();
         static public Dictionary<string, Texture2D> TextureList = new();
-        static public Button LETMEOUT;
-        static List<Button> ActiveButtons = new();
+        static public List<Button> ActiveButtons = new();
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -29,8 +29,6 @@ namespace Ugar
             _graphics.PreferredBackBufferWidth = (int)Tool.ScreenScale.X;
             _graphics.PreferredBackBufferHeight = (int)Tool.ScreenScale.Y;
             _graphics.ApplyChanges();
-            LETMEOUT = new Button(0.86f, 0.88f, 0.23f, 0.08f, () => { Exit(); return 0;});
-            ActiveButtons.Add(LETMEOUT);
             base.Initialize();
         }
 
@@ -39,7 +37,7 @@ namespace Ugar
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             MenuManager.LoadAll(Content);
-            MenuManager.LoadMainMenu();
+            MenuManager.LoadMainMenu(this);
         }
 
         protected override void Update(GameTime gameTime)
@@ -58,10 +56,12 @@ namespace Ugar
             MouseState CurrentState = Mouse.GetState();
             Tool.MousePosition = CurrentState.Position.ToVector2() / Tool.ScreenScale;
             //check hover
-            if(CurrentState.LeftButton == ButtonState.Pressed)
+            /*
+             * DEBUG
+             * if(CurrentState.LeftButton == ButtonState.Pressed)
             {
                 System.IO.File.WriteAllText("test.txt",$"{Tool.MousePosition}, {LETMEOUT.collider.Size}, {LETMEOUT.collider.HalfSize}, {LETMEOUT.collider.TestPoint(Tool.MousePosition)}");
-            }
+            }*/
             //reset button colors
             ActiveButtons.ForEach(button => button.Color = Color.Blue);
             for (int i = 0; i < ActiveButtons.Count; i++)
@@ -89,7 +89,7 @@ namespace Ugar
             {
                 _spriteBatch.Draw(item.Texture,item.Position*Tool.ScreenScale,null,Color.Gray,0f,new Vector2(item.Texture.Width/2f,item.Texture.Height/2f),(new Vector2(item.Scale.X/item.Texture.Width,item.Scale.Y/item.Texture.Height))*Tool.ScreenScale,SpriteEffects.None,item.LayerDepth);
             }
-            _spriteBatch.Draw(TextureList["DebugTexture0"],LETMEOUT.Position*Tool.ScreenScale,null,LETMEOUT.Color,0f, new Vector2(50,50),LETMEOUT.Size/100*Tool.ScreenScale,SpriteEffects.None,1);
+            //_spriteBatch.Draw(TextureList["DebugTexture0"],LETMEOUT.Position*Tool.ScreenScale,null,LETMEOUT.Color,0f, new Vector2(50,50),LETMEOUT.Size/100*Tool.ScreenScale,SpriteEffects.None,1);
             _spriteBatch.Draw(TextureList["DebugTexture0"], Tool.MousePosition * Tool.ScreenScale, null, Color.Orange, 0f, new Vector2(50, 50), 10f / 100f, SpriteEffects.None, 1); 
             _spriteBatch.End();
             base.Draw(gameTime);
