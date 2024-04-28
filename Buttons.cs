@@ -17,9 +17,4 @@ public class Button
 		Size = new Vector2(width, height);
 		OnClick = onclick;
 	}
-
-	public void DebugDraw()
-	{
-		
-	}
 }

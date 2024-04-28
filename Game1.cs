@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 
 namespace Ugar
@@ -26,12 +27,14 @@ namespace Ugar
             _graphics.PreferredBackBufferWidth = (int)Tool.ScreenScale.X;
             _graphics.PreferredBackBufferHeight = (int)Tool.ScreenScale.Y;
             _graphics.ApplyChanges();
+            new Button(0, 0, 100, 50, () => { Exit(); return 0;});
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+
             MenuManager.LoadAll(Content);
             MenuManager.LoadMainMenu();
         }
