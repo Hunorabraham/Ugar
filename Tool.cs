@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ugar.Content
+namespace Ugar
 {
     public class Tool
     {
@@ -18,8 +18,8 @@ namespace Ugar.Content
         }
         public static void Resolve(AABB a, AABB b)
         {
-            if(!a.Resolve||!b.Resolve) return;
-            if(!CheckOverlap(a, b)) return;
+            if (!a.Resolve || !b.Resolve) return;
+            if (!CheckOverlap(a, b)) return;
             //add resolution function later.
         }
     }
