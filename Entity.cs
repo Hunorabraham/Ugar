@@ -28,11 +28,25 @@ namespace Ugar
     public class Entity
     {
         //position is centered, Size is the Actual size
-        public Vector2 Position, Velocity, Size;
+        public Vector2 Position, Velocity, Forces, Size;
+        public float Weight;
+        public Func<int> AIUpdate;
         //it's collider
         public AABB collider;
         public Entity() {
             
+        }
+        public void AddForce(Vector2 incomingForce)
+        {
+            Forces += incomingForce / Weight;
+        }
+        public void Update()
+        {
+            AIUpdate.Invoke();
+            Velocity += Forces;
+            Forces = Vector2.Zero;
+            Position += Velocity;
+
         }
     }
 }
