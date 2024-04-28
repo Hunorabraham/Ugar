@@ -10,6 +10,7 @@ public class MenuManager
     static public void LoadAll(ContentManager Content)
     {
         Game1.TextureList.Add("Tablicsku",Content.Load<Texture2D>("Tablicsku"));
+        Game1.TextureList.Add("DebugTexture0", Content.Load<Texture2D>("square"));
     }
     static public void LoadMainMenu()
     {

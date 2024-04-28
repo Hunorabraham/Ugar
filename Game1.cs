@@ -12,7 +12,7 @@ namespace Ugar
         private SpriteBatch _spriteBatch;
         static public List<Image> RenderList = new();
         static public Dictionary<string, Texture2D> TextureList = new();
-
+        static public Button LETMEOUT;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -27,7 +27,7 @@ namespace Ugar
             _graphics.PreferredBackBufferWidth = (int)Tool.ScreenScale.X;
             _graphics.PreferredBackBufferHeight = (int)Tool.ScreenScale.Y;
             _graphics.ApplyChanges();
-            new Button(0, 0, 100, 50, () => { Exit(); return 0;});
+            LETMEOUT = new Button(0.82f, 0.86f, 0.25f, 0.10f, () => { Exit(); return 0;});
             base.Initialize();
         }
 
@@ -65,6 +65,7 @@ namespace Ugar
             {
                 _spriteBatch.Draw(item.Texture,item.Position*Tool.ScreenScale,null,Color.Gray,0f,new Vector2(item.Texture.Width/2f,item.Texture.Height/2f),(new Vector2(item.Scale.X/item.Texture.Width,item.Scale.Y/item.Texture.Height))*Tool.ScreenScale,SpriteEffects.None,item.LayerDepth);
             }
+            _spriteBatch.Draw(TextureList["DebugTexture0"],LETMEOUT.Position*Tool.ScreenScale,null,Color.Blue,0f, new Vector2(50,50),LETMEOUT.Size/100*Tool.ScreenScale,SpriteEffects.None,1);
             _spriteBatch.End();
             base.Draw(gameTime);
         }
