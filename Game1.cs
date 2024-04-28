@@ -9,8 +9,8 @@ namespace Ugar
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        static public List<Image> RenderList = new List<Image>();
-        static public Dictionary<string, Texture2D> TextureList = new Dictionary<string, Texture2D>();
+        static public List<Image> RenderList = new();
+        static public Dictionary<string, Texture2D> TextureList = new();
 
         public Game1()
         {
@@ -22,7 +22,10 @@ namespace Ugar
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            _graphics.ToggleFullScreen();
+            _graphics.PreferredBackBufferWidth = (int)Tool.ScreenScale.X;
+            _graphics.PreferredBackBufferHeight = (int)Tool.ScreenScale.Y;
+            _graphics.ApplyChanges();
             base.Initialize();
         }
 
