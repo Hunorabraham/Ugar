@@ -27,7 +27,7 @@ namespace Ugar
             _graphics.PreferredBackBufferWidth = (int)Tool.ScreenScale.X;
             _graphics.PreferredBackBufferHeight = (int)Tool.ScreenScale.Y;
             _graphics.ApplyChanges();
-            LETMEOUT = new Button(0.82f, 0.86f, 0.25f, 0.10f, () => { Exit(); return 0;});
+            LETMEOUT = new Button(0.86f, 0.88f, 0.23f, 0.08f, () => { Exit(); return 0;});
             base.Initialize();
         }
 
