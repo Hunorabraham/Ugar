@@ -14,6 +14,6 @@ public class MenuManager
     static public void LoadMainMenu()
     {
         Game1.RenderList.Clear();
-        Game1.RenderList.Add(new Image(Game1.TextureList["Tablicsku"],new Vector2(1550,450),new Vector2(0.38f,0.38f),0));
+        Game1.RenderList.Add(new Image(Game1.TextureList["Tablicsku"],new Vector2(0.85f,0.7f),new Vector2(0.3f,0.6f),0));
     }
 }

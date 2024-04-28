@@ -50,6 +50,12 @@ namespace Ugar
 
         protected override void Draw(GameTime gameTime)
         {
+            //update mousePosition
+            MouseState CurrentState = Mouse.GetState();
+            Tool.MousePosition = CurrentState.Position.ToVector2() / Tool.ScreenScale;
+            //on click event
+            if(CurrentState.LeftButton == ButtonState.Pressed) { }
+
             GraphicsDevice.Clear(Color.Black);
 
             _spriteBatch.Begin();
@@ -57,7 +63,7 @@ namespace Ugar
             // TODO: Add your drawing code here
             foreach (var item in RenderList)
             {
-                _spriteBatch.Draw(item.Texture,item.Position,null,Color.Gray,0f,item.Position/2f,item.Scale,SpriteEffects.None,item.LayerDepth);
+                _spriteBatch.Draw(item.Texture,item.Position*Tool.ScreenScale,null,Color.Gray,0f,new Vector2(item.Texture.Width/2f,item.Texture.Height/2f),(new Vector2(item.Scale.X/item.Texture.Width,item.Scale.Y/item.Texture.Height))*Tool.ScreenScale,SpriteEffects.None,item.LayerDepth);
             }
             _spriteBatch.End();
             base.Draw(gameTime);
