@@ -50,16 +50,18 @@ namespace Ugar
 
         protected override void Draw(GameTime gameTime)
         {
+
             //update mousePosition
             MouseState CurrentState = Mouse.GetState();
             Tool.MousePosition = CurrentState.Position.ToVector2() / Tool.ScreenScale;
-            //on click event
-            if(CurrentState.LeftButton == ButtonState.Pressed) { }
+
 
             GraphicsDevice.Clear(Color.Black);
-
+            
             _spriteBatch.Begin();
 
+            //render the cursor
+            _spriteBatch.Draw(TextureList["DebugTexture0"], Tool.MousePosition * Tool.ScreenScale, null, Color.Orange, 0f, new Vector2(50, 50), 10 / 100 * Tool.ScreenScale, SpriteEffects.None, 1);
             // TODO: Add your drawing code here
             foreach (var item in RenderList)
             {
