@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,20 @@ using System.Threading.Tasks;
 
 namespace Ugar
 {
+    public class Image
+    {
+        public Vector2 Position, Scale;
+        public Texture2D Texture;
+        public float LayerDepth;
+        public Image(Texture2D texture, Vector2 position, Vector2 scale, float layer)
+        {
+            Texture = texture;
+            Position = position;
+            Scale = scale;
+            LayerDepth = layer;
+        }
+
+    }
     public class AABB {
         //position is centered, Size is half of the actual size
         public Vector2 Position, Size;

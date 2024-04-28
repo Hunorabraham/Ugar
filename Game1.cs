@@ -9,7 +9,8 @@ namespace Ugar
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private List<Texture2D> RenderList;
+        static public List<Image> RenderList = new List<Image>();
+        static public Dictionary<string, Texture2D> TextureList = new Dictionary<string, Texture2D>();
 
         public Game1()
         {
@@ -28,6 +29,7 @@ namespace Ugar
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            MenuManager.LoadAll(Content);
 
         }
 
@@ -44,8 +46,14 @@ namespace Ugar
         {
             GraphicsDevice.Clear(Color.Black);
 
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin();
 
+            // TODO: Add your drawing code here
+            foreach (var item in RenderList)
+            {
+                _spriteBatch.Draw(item.Texture,item.Position,null,Color.Gray,0f,item.Position/2f,item.Scale,SpriteEffects.None,item.LayerDepth);
+            }
+            _spriteBatch.End();
             base.Draw(gameTime);
         }
     }
