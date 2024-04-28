@@ -35,8 +35,8 @@ namespace Ugar
         }
         public bool TestPoint(Vector2 point)
         {
-            if(Position.X-HalfSize.X<point.X || Position.X+HalfSize.X>point.X) return false;
-            if(Position.Y-HalfSize.Y<point.Y || Position.Y+HalfSize.Y>point.Y) return false;
+            if(Position.X-HalfSize.X > point.X || Position.X+HalfSize.X < point.X) return false;
+            if(Position.Y-HalfSize.Y > point.Y || Position.Y+HalfSize.Y < point.Y) return false;
             return true;
         }
     }
