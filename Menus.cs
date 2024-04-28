@@ -11,7 +11,7 @@ public class MenuManager
     {
         Game1.TextureList.Add("Tablicsku",Content.Load<Texture2D>("Tablicsku"));
     }
-    static void LoadMainMenu()
+    static public void LoadMainMenu()
     {
         Game1.RenderList.Clear();
         Game1.RenderList.Add(new Image(Game1.TextureList["Tablicsku"],new Vector2(0,0),new Vector2(100,100),0));

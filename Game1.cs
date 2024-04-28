@@ -30,7 +30,7 @@ namespace Ugar
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             MenuManager.LoadAll(Content);
-
+            MenuManager.LoadMainMenu();
         }
 
         protected override void Update(GameTime gameTime)
