@@ -8,6 +8,7 @@ public class Button
 	public Color Color = Color.Blue;
 	public AABB collider;
 	public Func<int> OnClick;
+    public bool Debug = false;
 	public Button(Vector2 pos, Vector2 size, Func<int> onclick)
 	{  
 		Position = pos; 
@@ -22,4 +23,20 @@ public class Button
         collider = new AABB(Position, Size, false);
         OnClick = onclick;
 	}
+    public Button(Vector2 pos, Vector2 size, Func<int> onclick, bool debug)
+    {
+        Position = pos;
+        Size = size;
+        collider = new AABB(Position, Size, false);
+        OnClick = onclick;
+        Debug = debug;
+    }
+    public Button(float x, float y, float width, float height, Func<int> onclick, bool debug)
+    {
+        Position = new Vector2(x, y);
+        Size = new Vector2(width, height);
+        collider = new AABB(Position, Size, false);
+        OnClick = onclick;
+        Debug = debug;
+    }
 }
