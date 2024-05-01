@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 
 namespace Ugar
 {
@@ -17,6 +18,7 @@ namespace Ugar
         static public Dictionary<string, Texture2D> TextureList = new();
         static public List<Button> ActiveButtons = new();
         static public int PreviusHoveredButton = -1;
+        static public bool InMenu = true;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -57,6 +59,10 @@ namespace Ugar
             //update mousePosition
             MouseState CurrentState = Mouse.GetState();
             Tool.MousePosition = CurrentState.Position.ToVector2() / Tool.ScreenScale;
+
+            //menu paralax
+            if (InMenu) doParalax();
+
             //check hover
             /*
              * DEBUG
@@ -109,6 +115,13 @@ namespace Ugar
                         
             _spriteBatch.End();
             base.Draw(gameTime);
+        }
+        private void doParalax()
+        {
+            float drift = Tool.MousePosition.X-0.5f;
+            RenderList[0].Position.X = 0.5f + drift * 0.02f;
+            RenderList[1].Position.X = 0.5f + drift * 0.08f;
+            RenderList[2].Position.X = 0.5f + drift * 0.22f;
         }
     }
 }
