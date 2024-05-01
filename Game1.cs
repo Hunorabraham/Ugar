@@ -122,10 +122,11 @@ namespace Ugar
             float drift = -Tool.MousePosition.X+0.5f;
             RenderList[1].Position.X = 0.5f + drift * 0.02f;
             RenderList[2].Position.X = 0.5f + drift * 0.08f;
-            float driftY = -Tool.MousePosition.Y+0.5f;
-            RenderList[1].Position.X = 0.5f + drift * 0.02f;
-            RenderList[2].Position.X = 0.5f + drift * 0.08f;
             RenderList[3].Position.X = 0.5f + drift * 0.22f;
+            float driftY = -Tool.MousePosition.Y+0.5f;
+            RenderList[1].Position.Y = 0.5f + driftY * 0.01f;
+            RenderList[2].Position.Y = 0.5f + driftY * 0.04f;
+            RenderList[3].Position.Y = 0.5f + driftY * 0.11f;
         }
     }
 }
