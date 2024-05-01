@@ -18,6 +18,7 @@ namespace Ugar
             Game1.TextureList.Add("Settings", Content.Load<Texture2D>("img/Resolution"));
             Game1.TextureList.Add("Logs", Content.Load<Texture2D>("img/Biblioteca"));
             Game1.TextureList.Add("Back", Content.Load<Texture2D>("img/Back"));
+            Game1.TextureList.Add("Apply", Content.Load<Texture2D>("img/Apply"));
             Game1.TextureList.Add("Mouse", Content.Load<Texture2D>("img/Arrow"));
             Game1.TextureList.Add("MenuBackgroundLayer1", Content.Load<Texture2D>("img/Eclipse"));
             Game1.TextureList.Add("MenuBackgroundLayer2", Content.Load<Texture2D>("img/Mountain"));
@@ -52,7 +53,8 @@ namespace Ugar
             Game1.PreviusHoveredButton = -1;
             Game1.InMenu = false;
             Game1.RenderList.Add(new Image(Game1.TextureList["SettingsBackground"], new Vector2(0.5f, 0.5f), new Vector2(1f, 1f), 0));
-            Game1.ActiveButtons.Add(new Button(0.24f, 0.78f, 0.23f, 0.08f, Game1.TextureList["QuitLabel"], () => { MenuManager.LoadMainMenu(T); return 0; }));
+            Game1.ActiveButtons.Add(new Button(0.24f, 0.78f, 0.23f, 0.08f, Game1.TextureList["Back"], () => { MenuManager.LoadMainMenu(T); return 0; }));
+            Game1.ActiveButtons.Add(new Button(0.24f, 0.24f, 0.23f, 0.08f, Game1.TextureList["HD"], () => { Tool.TempScreenScale = new Vector2(1280, 720), true }));
         }
     }
 }
