@@ -17,7 +17,7 @@ namespace Ugar
             Game1.TextureList.Add("Play", Content.Load<Texture2D>("Pannonia"));
             Game1.TextureList.Add("Settings", Content.Load<Texture2D>("Resolution"));
             Game1.TextureList.Add("Logs", Content.Load<Texture2D>("Biblioteca"));
-            Game1.TextureList.Add("MenuBackgroundLayer2", Content.Load<Texture2D>("Mountian"));
+            Game1.TextureList.Add("MenuBackgroundLayer2", Content.Load<Texture2D>("Mountain"));
             Game1.TextureList.Add("MenuBackgroundLayer3", Content.Load<Texture2D>("Kapu"));
             Game1.TextureList.Add("MenuBackgroundLayer4", Content.Load<Texture2D>("Bottom"));
         }
@@ -25,6 +25,9 @@ namespace Ugar
         {
             Game1.RenderList.Clear();
             Game1.PreviusHoveredButton = -1;
+            Game1.RenderList.Add(new Image(Game1.TextureList["MenuBackgroundLayer2"], new Vector2(0.5f, 0.5f), new Vector2(1.1f, 1f), 0));
+            Game1.RenderList.Add(new Image(Game1.TextureList["MenuBackgroundLayer3"], new Vector2(0.5f, 0.5f), new Vector2(1.1f, 1f), 0));
+            Game1.RenderList.Add(new Image(Game1.TextureList["MenuBackgroundLayer4"], new Vector2(0.5f, 0.5f), new Vector2(1.1f, 1f), 0));
             Game1.RenderList.Add(new Image(Game1.TextureList["Tablicsku"], new Vector2(0.85f, 0.7f), new Vector2(0.3f, 0.6f), 0));
             Game1.ActiveButtons.Add(new Button(0.87f, 0.52f, 0.23f, 0.08f, Game1.TextureList["Play"], () => { return 0; }));
             Game1.ActiveButtons.Add(new Button(0.85f, 0.65f, 0.23f, 0.08f, Game1.TextureList["Logs"], () => { return 0; }));
