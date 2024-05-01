@@ -68,7 +68,7 @@ namespace Ugar
             //variable for storing the previous hovered button
             ActiveButtons.ForEach(button => button.Color = Color.Blue);
             //"unhover" if mouse left
-            if (PreviusHoveredButton != -1 && !ActiveButtons[PreviusHoveredButton].collider.TestPoint(Tool.MousePosition)) { ActiveButtons[PreviusHoveredButton].OnMouseLeave.Invoke();PreviusHoveredButton = -1; };
+            if (PreviusHoveredButton != -1 && !ActiveButtons[PreviusHoveredButton].collider.TestPoint(Tool.MousePosition)) { ActiveButtons[PreviusHoveredButton].OnMouseLeave();PreviusHoveredButton = -1; };
 
             for (int i = 0; i < ActiveButtons.Count; i++)
             {
@@ -85,7 +85,7 @@ namespace Ugar
                     if (PreviusHoveredButton != i)
                     {
                         ActiveButtons[i].Color = Color.LightBlue;
-                        ActiveButtons[i].OnHover.Invoke();
+                        ActiveButtons[i].OnHover();
                         PreviusHoveredButton = i;
                     }
                     break;
