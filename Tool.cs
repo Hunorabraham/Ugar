@@ -25,6 +25,7 @@ namespace Ugar
             //add resolution function later.
         }
         public static Vector2 ScreenScale = new Vector2(1920,1080);
+        public static Vector2 TempScreenScale = new Vector2(1920,1080);
         public static Vector2 MousePosition = Vector2.Zero;
     }
 }

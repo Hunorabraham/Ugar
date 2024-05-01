@@ -112,7 +112,7 @@ namespace Ugar
             ActiveButtons.Where(x => x.Debug).ToList().ForEach(button => _spriteBatch.Draw(TextureList["DebugTexture0"], button.Position * Tool.ScreenScale, null, button.Color, 0f, new Vector2(50, 50), button.Size / 100 * Tool.ScreenScale, SpriteEffects.None, 1));
             //_spriteBatch.Draw(TextureList["DebugTexture0"],LETMEOUT.Position*Tool.ScreenScale,null,LETMEOUT.Color,0f, new Vector2(50,50),LETMEOUT.Size/100*Tool.ScreenScale,SpriteEffects.None,1);
             //mouse draw, for debug
-            _spriteBatch.Draw(TextureList["DebugTexture0"], Tool.MousePosition * Tool.ScreenScale, null, Color.Orange, 0f, new Vector2(50, 50), 10f / 100f, SpriteEffects.None, 1); 
+            _spriteBatch.Draw(TextureList["Mouse"], Tool.MousePosition * Tool.ScreenScale, null, Color.White, 0f, new Vector2(0, 0), 10f / 100f, SpriteEffects.None, 1); 
                         
             _spriteBatch.End();
             base.Draw(gameTime);
