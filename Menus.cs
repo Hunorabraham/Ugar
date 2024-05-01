@@ -11,17 +11,16 @@ namespace Ugar
     {
         static public void LoadAll(ContentManager Content)
         {
-            Game1.TextureList.Add("Tablicsku", Content.Load<Texture2D>("Tablicsku"));
-            Game1.TextureList.Add("DebugTexture0", Content.Load<Texture2D>("square"));
-            Game1.TextureList.Add("QuitLabel",Content.Load<Texture2D>("quitText"));
-            Game1.TextureList.Add("Play", Content.Load<Texture2D>("Pannonia"));
-            Game1.TextureList.Add("Settings", Content.Load<Texture2D>("Resolution"));
-            Game1.TextureList.Add("Logs", Content.Load<Texture2D>("Biblioteca"));
-            Game1.TextureList.Add("MenuBackgroundLayer1", Content.Load<Texture2D>("Eclipse"));
-            Game1.TextureList.Add("MenuBackgroundLayer2", Content.Load<Texture2D>("Mountain"));
-            Game1.TextureList.Add("MenuBackgroundLayer3", Content.Load<Texture2D>("Kapu"));
-            Game1.TextureList.Add("MenuBackgroundLayer4", Content.Load<Texture2D>("Bottom"));
-            
+            Game1.TextureList.Add("Tablicsku", Content.Load<Texture2D>("img/Tablicsku"));
+            Game1.TextureList.Add("DebugTexture0", Content.Load<Texture2D>("img/square"));
+            Game1.TextureList.Add("QuitLabel",Content.Load<Texture2D>("img/quitText"));
+            Game1.TextureList.Add("Play", Content.Load<Texture2D>("img/Pannonia"));
+            Game1.TextureList.Add("Settings", Content.Load<Texture2D>("img/Resolution"));
+            Game1.TextureList.Add("Logs", Content.Load<Texture2D>("img/Biblioteca"));
+            Game1.TextureList.Add("MenuBackgroundLayer1", Content.Load<Texture2D>("img/Eclipse"));
+            Game1.TextureList.Add("MenuBackgroundLayer2", Content.Load<Texture2D>("img/Mountain"));
+            Game1.TextureList.Add("MenuBackgroundLayer3", Content.Load<Texture2D>("img/Kapu"));
+            Game1.TextureList.Add("MenuBackgroundLayer4", Content.Load<Texture2D>("img/Bottom"));
         }
         static public void LoadMainMenu(Game1 T)
         {
