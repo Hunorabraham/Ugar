@@ -17,6 +17,9 @@ namespace Ugar
             Game1.TextureList.Add("Play", Content.Load<Texture2D>("Pannonia"));
             Game1.TextureList.Add("Settings", Content.Load<Texture2D>("Resolution"));
             Game1.TextureList.Add("Logs", Content.Load<Texture2D>("Biblioteca"));
+            Game1.TextureList.Add("MenuBackgroundLayer2", Content.Load<Texture2D>("Mountian"));
+            Game1.TextureList.Add("MenuBackgroundLayer3", Content.Load<Texture2D>("Kapu"));
+            Game1.TextureList.Add("MenuBackgroundLayer4", Content.Load<Texture2D>("Bottom"));
         }
         static public void LoadMainMenu(Game1 T)
         {
