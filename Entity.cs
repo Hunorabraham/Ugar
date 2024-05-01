@@ -11,6 +11,7 @@ namespace Ugar
     public class Image
     {
         public Vector2 Position, Scale;
+        public Color Color;
         public Texture2D Texture;
         public float LayerDepth;
         public Image(Texture2D texture, Vector2 position, Vector2 scale, float layer)
@@ -19,6 +20,15 @@ namespace Ugar
             Position = position;
             Scale = scale;
             LayerDepth = layer;
+            Color = Color.White;
+        }
+        public Image(Texture2D texture, Vector2 position, Vector2 scale, float layer, Color color)
+        {
+            Texture = texture;
+            Position = position;
+            Scale = scale;
+            LayerDepth = layer;
+            Color = color;
         }
 
     }
