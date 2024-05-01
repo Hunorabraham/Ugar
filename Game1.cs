@@ -15,6 +15,7 @@ namespace Ugar
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         static public List<Image> RenderList = new();
+        static public List<Image> GameRenderList = new();
         static public Dictionary<string, Texture2D> TextureList = new();
         static public List<Button> ActiveButtons = new();
         static public int PreviusHoveredButton = -1;
