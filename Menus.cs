@@ -17,14 +17,17 @@ namespace Ugar
             Game1.TextureList.Add("Play", Content.Load<Texture2D>("Pannonia"));
             Game1.TextureList.Add("Settings", Content.Load<Texture2D>("Resolution"));
             Game1.TextureList.Add("Logs", Content.Load<Texture2D>("Biblioteca"));
+            Game1.TextureList.Add("MenuBackgroundLayer1", Content.Load<Texture2D>("Eclipse"));
             Game1.TextureList.Add("MenuBackgroundLayer2", Content.Load<Texture2D>("Mountain"));
             Game1.TextureList.Add("MenuBackgroundLayer3", Content.Load<Texture2D>("Kapu"));
             Game1.TextureList.Add("MenuBackgroundLayer4", Content.Load<Texture2D>("Bottom"));
+            
         }
         static public void LoadMainMenu(Game1 T)
         {
             Game1.RenderList.Clear();
             Game1.PreviusHoveredButton = -1;
+            Game1.RenderList.Add(new Image(Game1.TextureList["MenuBackgroundLayer1"], new Vector2(0.5f, 0.5f), new Vector2(1.1f, 1f), 0));
             Game1.RenderList.Add(new Image(Game1.TextureList["MenuBackgroundLayer2"], new Vector2(0.5f, 0.5f), new Vector2(1.1f, 1f), 0));
             Game1.RenderList.Add(new Image(Game1.TextureList["MenuBackgroundLayer3"], new Vector2(0.5f, 0.5f), new Vector2(1.1f, 1f), 0));
             Game1.RenderList.Add(new Image(Game1.TextureList["MenuBackgroundLayer4"], new Vector2(0.5f, 0.5f), new Vector2(1.25f, 1f), 0));
