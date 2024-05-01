@@ -90,12 +90,14 @@ namespace Ugar
                     
                     if (PreviusHoveredButton != i && PreviusHoveredButton != -1)
                     {
+                        ActiveButtons[i].Color = Color.LightBlue;
                         ActiveButtons[i].OnHover.Invoke();
                         ActiveButtons[PreviusHoveredButton].OnMouseLeave.Invoke();
                         PreviusHoveredButton = i;
                     }
                     else
                     {
+                        ActiveButtons[i].Color = Color.LightBlue;
                         ActiveButtons[i].OnHover.Invoke();
                         PreviusHoveredButton = i;
                     }
