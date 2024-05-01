@@ -119,9 +119,9 @@ namespace Ugar
         private void doParalax()
         {
             float drift = Tool.MousePosition.X-0.5f;
-            RenderList[0].Position.X = 0.5f + drift * 0.02f;
-            RenderList[1].Position.X = 0.5f + drift * 0.08f;
-            RenderList[2].Position.X = 0.5f + drift * 0.22f;
+            RenderList[1].Position.X = 0.5f + drift * 0.02f;
+            RenderList[2].Position.X = 0.5f + drift * 0.08f;
+            RenderList[3].Position.X = 0.5f + drift * 0.22f;
         }
     }
 }
