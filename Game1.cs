@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace Ugar
@@ -74,16 +75,28 @@ namespace Ugar
                     if (CurrentState.LeftButton == ButtonState.Pressed)
                     {
                         ActiveButtons[i].OnClick.Invoke();
-                        if (PreviusHoveredButton!=i&&PreviusHoveredButton!=-1) {
+                        if (PreviusHoveredButton != i && PreviusHoveredButton != -1) {
+                            ActiveButtons[i].OnHover.Invoke();
                             ActiveButtons[PreviusHoveredButton].OnMouseLeave.Invoke();
+                            PreviusHoveredButton = i;
+                        }
+                        else
+                        {
+                            ActiveButtons[i].OnHover.Invoke();
                             PreviusHoveredButton = i;
                         }
                         break;
                     }
-                    ActiveButtons[i].OnHover.Invoke();
+                    
                     if (PreviusHoveredButton != i && PreviusHoveredButton != -1)
                     {
+                        ActiveButtons[i].OnHover.Invoke();
                         ActiveButtons[PreviusHoveredButton].OnMouseLeave.Invoke();
+                        PreviusHoveredButton = i;
+                    }
+                    else
+                    {
+                        ActiveButtons[i].OnHover.Invoke();
                         PreviusHoveredButton = i;
                     }
                     break;
@@ -100,6 +113,12 @@ namespace Ugar
             {
                 _spriteBatch.Draw(item.Texture,item.Position*Tool.ScreenScale,null,item.Color,0f,new Vector2(item.Texture.Width/2f,item.Texture.Height/2f),(new Vector2(item.Scale.X/item.Texture.Width,item.Scale.Y/item.Texture.Height))*Tool.ScreenScale,SpriteEffects.None,item.LayerDepth);
             }
+            ActiveButtons.ForEach((button) => {
+                if (button.Debug)
+                {
+                    _spriteBatch.Draw(TextureList["DebugTexture0"],button.Position*Tool.ScreenScale,null,button.Color,0f, new Vector2(50,50),button.Size/100*Tool.ScreenScale,SpriteEffects.None,1);
+                }
+            });
             //_spriteBatch.Draw(TextureList["DebugTexture0"],LETMEOUT.Position*Tool.ScreenScale,null,LETMEOUT.Color,0f, new Vector2(50,50),LETMEOUT.Size/100*Tool.ScreenScale,SpriteEffects.None,1);
             //mouse draw, for debug
             _spriteBatch.Draw(TextureList["DebugTexture0"], Tool.MousePosition * Tool.ScreenScale, null, Color.Orange, 0f, new Vector2(50, 50), 10f / 100f, SpriteEffects.None, 1); 
