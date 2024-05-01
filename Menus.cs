@@ -54,7 +54,12 @@ namespace Ugar
             Game1.InMenu = false;
             Game1.RenderList.Add(new Image(Game1.TextureList["SettingsBackground"], new Vector2(0.5f, 0.5f), new Vector2(1f, 1f), 0));
             Game1.ActiveButtons.Add(new Button(0.24f, 0.78f, 0.23f, 0.08f, Game1.TextureList["Back"], () => { MenuManager.LoadMainMenu(T); return 0; }));
-            Game1.ActiveButtons.Add(new Button(0.24f, 0.24f, 0.23f, 0.08f, Game1.TextureList["HD"], () => { Tool.TempScreenScale = new Vector2(1280, 720), true }));
+            Game1.ActiveButtons.Add(new Button(0.24f, 0.20f, 0.23f, 0.08f, Game1.TextureList["HD"], () => { Tool.TempScreenScale = new Vector2(1280, 720); return 0; }));
+            Game1.ActiveButtons.Add(new Button(0.24f, 0.30f, 0.23f, 0.08f, Game1.TextureList["FWXGA"], () => { Tool.TempScreenScale = new Vector2(1366, 768); return 0; }));
+            Game1.ActiveButtons.Add(new Button(0.24f, 0.40f, 0.23f, 0.08f, Game1.TextureList["HD+"], () => { Tool.TempScreenScale = new Vector2(1600, 900); return 0; }));
+            Game1.ActiveButtons.Add(new Button(0.24f, 0.50f, 0.23f, 0.08f, Game1.TextureList["FullHD"], () => { Tool.TempScreenScale = new Vector2(1920, 1080); return 0; }));
+            Game1.ActiveButtons.Add(new Button(0.77f, 0.77f, 0.23f, 0.08f, Game1.TextureList["Apply"], () => { Tool.ScreenScale = Tool.TempScreenScale; T._graphics.PreferredBackBufferWidth = (int)Tool.ScreenScale.X; T._graphics.PreferredBackBufferHeight = (int)Tool.ScreenScale.Y; T._graphics.ApplyChanges(); return 0; }));
+
         }
     }
 }

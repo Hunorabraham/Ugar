@@ -12,7 +12,7 @@ namespace Ugar
 {
     public class Game1 : Game
     {
-        private GraphicsDeviceManager _graphics;
+        public GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         static public List<Image> RenderList = new();
         static public List<Image> GameRenderList = new();
