@@ -20,6 +20,7 @@ namespace Ugar
         static public List<Button> ActiveButtons = new();
         static public int PreviusHoveredButton = -1;
         static public bool InMenu = true;
+        static private bool MouseDown = false;
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -76,18 +77,17 @@ namespace Ugar
             ActiveButtons.ForEach(button => button.Color = Color.Blue);
             //"unhover" if mouse left
             if (PreviusHoveredButton != -1 && !ActiveButtons[PreviusHoveredButton].collider.TestPoint(Tool.MousePosition)) { ActiveButtons[PreviusHoveredButton].OnMouseLeave();PreviusHoveredButton = -1; };
-
             for (int i = 0; i < ActiveButtons.Count; i++)
             {
                 if (ActiveButtons[i].collider.TestPoint(Tool.MousePosition))
                 {
                     //check click
-                    if (CurrentState.LeftButton == ButtonState.Pressed)
+                    if (CurrentState.LeftButton == ButtonState.Pressed && !MouseDown)
                     {
                         ActiveButtons[i].OnClick.Invoke();
+                        MouseDown = true;
                         break;
                     }
-                    
                     //check hover
                     if (PreviusHoveredButton != i)
                     {
@@ -98,7 +98,7 @@ namespace Ugar
                     break;
                 }
             }
-
+            MouseDown = CurrentState.LeftButton == ButtonState.Pressed;
             GraphicsDevice.Clear(Color.Black);
             
             _spriteBatch.Begin();
