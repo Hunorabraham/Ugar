@@ -12,20 +12,34 @@ namespace Ugar
     {
         //Duration is in miliseconds, FrameCounter is divided by FPS then floored for current frame index and advanced by elapsed miliseconds each game frame
         public int Frames, Duration, FrameCounter, FrameDuration;
-        public bool Loop;
-        private bool Playing;
+        public bool Loop, Playing;
         public SpriteSheet Source;
+        public Vector2 Scale = Vector2.One;
+        public Vector2 FrameCenter;
         private Rectangle SourceRect;
-        public SpriteAnimation(SpriteSheet source,int frames, int duration, bool loop)
+        public SpriteAnimation(SpriteSheet source, int duration, bool loop)
         {
             Source = source;
-            Frames = frames;
+            Frames = source.Columns * source.Rows - source.Blanks;
             Duration = duration;
             Loop = loop;
             FrameCounter = 0;
             FrameDuration = Duration / Frames;
             SourceRect = new Rectangle(0,0,Source.FrameWidth,Source.FrameHeingt);
+            FrameCenter = new Vector2(Source.FrameWidth /2,Source.FrameHeingt/2);
             Playing = false;
+        }
+        public SpriteAnimation(SpriteSheet source, int duration, bool loop, Vector2 DestinationSize)
+        {
+            Source = source;
+            Frames = source.Columns * source.Rows - source.Blanks;
+            Duration = duration;
+            Loop = loop;
+            FrameCounter = 0;
+            FrameDuration = Duration / Frames;
+            SourceRect = new Rectangle(0, 0, Source.FrameWidth, Source.FrameHeingt);
+            Playing = false;
+            Scale = DestinationSize / new Vector2(Source.FrameWidth, Source.FrameHeingt);
         }
         public Rectangle GetCurrentFrame() {
             if(!Playing) return SourceRect;//if we aren't playing we don't have to update the frame
@@ -65,11 +79,12 @@ namespace Ugar
     public class SpriteSheet
     {
         public Texture2D Texture;
-        public int Rows, Columns, FrameHeingt, FrameWidth;
-        public SpriteSheet(Texture2D texture, int rows, int columns) {
+        public int Rows, Columns, FrameHeingt, FrameWidth, Blanks;
+        public SpriteSheet(Texture2D texture, int rows, int columns, int blanks) {
             Texture = texture;
             Rows = rows;
             Columns = columns;
+            Blanks = blanks;
             FrameHeingt = Texture.Height/Rows;
             FrameWidth = Texture.Width/Columns;
         }
