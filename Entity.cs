@@ -88,6 +88,7 @@ namespace Ugar
                 Animations.Add(new SpriteAnimation(animationSources[i], durationProfile[i], loopProfile[i], Size));
             }
             CurrentAnim = Animations[0];
+            collider = new AABB(Position,Size,true);
         }
         public void Render(SpriteBatch sp)
         {
