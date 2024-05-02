@@ -69,13 +69,13 @@ namespace Ugar
             Game1.InMenu = false;
             Game1.RenderList.Add(new Image(Game1.TextureList["SettingsBackground"], new Vector2(0.5f, 0.5f), new Vector2(1f, 1f), 0));
             Game1.ActiveButtons.Add(new Button(0.24f, 0.78f, 0.23f, 0.08f, Game1.TextureList["Back"], () => { MenuManager.LoadMainMenu(T); return 0; }));
-            Game1.ActiveButtons.Add(new Button(0.20f, 0.39f, 0.18f, 0.42f, Game1.TextureList["DebugTexture0"], () => { return 0; }));
+            Game1.ActiveButtons.Add(new Button(0.20f, 0.39f, 0.18f, 0.42f, Game1.TextureList["DebugTexture0"], () => { T.Exit(); return 0; }));
             Game1.RenderList.Add(new Image(Game1.TextureList["DebugTexture0"], new Vector2(0.20f, 0.34f), new Vector2(0.16f, 0.29f), 0));
-            Game1.ActiveButtons.Add(new Button(0.39f, 0.39f, 0.18f, 0.42f, Game1.TextureList["DebugTexture0"], () => { return 0; }));
+            Game1.ActiveButtons.Add(new Button(0.39f, 0.39f, 0.18f, 0.42f, Game1.TextureList["DebugTexture0"], () => { T.Exit(); return 0; }));
             Game1.RenderList.Add(new Image(Game1.TextureList["DebugTexture0"], new Vector2(0.39f, 0.34f), new Vector2(0.16f, 0.29f), 0));
-            Game1.ActiveButtons.Add(new Button(0.58f, 0.39f, 0.18f, 0.42f, Game1.TextureList["DebugTexture0"], () => { return 0; }));
+            Game1.ActiveButtons.Add(new Button(0.58f, 0.39f, 0.18f, 0.42f, Game1.TextureList["DebugTexture0"], () => { T.Exit(); return 0; }));
             Game1.RenderList.Add(new Image(Game1.TextureList["DebugTexture0"], new Vector2(0.58f, 0.34f), new Vector2(0.16f, 0.29f), 0));
-            Game1.ActiveButtons.Add(new Button(0.77f, 0.39f, 0.18f, 0.42f, Game1.TextureList["DebugTexture0"], () => { return 0; }));
+            Game1.ActiveButtons.Add(new Button(0.77f, 0.39f, 0.18f, 0.42f, Game1.TextureList["DebugTexture0"], () => { T.Exit(); return 0; }));
             Game1.RenderList.Add(new Image(Game1.TextureList["DebugTexture0"], new Vector2(0.77f, 0.34f), new Vector2(0.16f, 0.29f), 0));
 
         }
